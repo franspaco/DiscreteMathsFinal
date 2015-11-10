@@ -42,16 +42,17 @@ function main(s){
   var oper = document.getElementById("operation");
   var res = document.getElementById("res");
 
-  oper.innerHTML = s;
+  uOut.innerHTML = "{ " + un + "}";
+  aOut.innerHTML = "{ " + ca + "}";
+  bOut.innerHTML = "{ " + cb + "}";
+  oper.innerHTML = s + ":";
 
   var valid =unvalindInput(un, ca, cb);
   if(valid != "true"){
     errP.innerHTML = valid;
-    return;
+    return 0;
   }else{
     errP.innerHTML = "";
   }
-  uOut.innerHTML = un;
-  aOut.innerHTML = ca;
-  bOut.innerHTML = cb;
+
 }
