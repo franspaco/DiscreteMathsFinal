@@ -80,8 +80,7 @@ function unvalindInput(un, ca, cb){
   if(errors == ""){
     return "true";
   }else{
-    //return errors;
-    return "true";
+    return errors;
   }
 }
 
