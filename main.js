@@ -35,6 +35,18 @@ function main(s){
     case "Intersección":
       tmp = intersection(ca, cb);
       break;
+    case "Diferencia A-B":
+      tmp = difference(ca, cb);
+      break;
+    case "Diferencia B-A":
+      tmp = difference(cb, ca);
+      break;
+    case "Complemento A":
+      tmp = difference(un, ca);
+      break;
+    case "Complemento B":
+      tmp = difference(un, cb);
+      break;
   }
   res.innerHTML = tmp;
 }
@@ -108,6 +120,18 @@ function intersection(a, b){
   var newA = [];
   for(var i = 0; i < a.length; i++){
     if(isInArray(a[i], b) && ( !isInArray(a[i], newA) ) ){
+      newA.push(a[i]);
+    }
+  }
+  return "{ " + sortN(newA)  + "}";
+}
+
+function difference(a,b){
+  // A - B
+  var newA = [];
+
+  for(var i = 0; i < a.length; i++){
+    if(!isInArray(a[i], b)){
       newA.push(a[i]);
     }
   }
