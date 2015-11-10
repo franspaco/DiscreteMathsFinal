@@ -68,3 +68,8 @@ body{
 #error{
   color: #F44336;
 }
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}
