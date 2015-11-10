@@ -53,7 +53,13 @@ function main(s){
 
 // MISCELLANEOUS FUNCTIONS *****************************************************
 function isSubArray(a, b){
-  //returns TRUE if a is a sub-array of b, returns FALSE otherwise
+  //returns TRUE if a is a sub-set of b, returns FALSE otherwise
+  if(a[0] == ""){
+    return true;
+  }
+  if(a.length > b.length){
+    return false;
+  }
   var state = true;
   for(var i = 0; i < a.length; i++){
     var subState = false;
@@ -72,10 +78,10 @@ function unvalindInput(un, ca, cb){
   //returns string "true" if input arrays are valid, otherwise returns string with errors
   var errors = "";
   if(!isSubArray(ca,un)){
-    errors += "A no pertenece a U<br>";
+    errors += "A ∉ U<br>";
   }
   if(!isSubArray(cb,un)){
-    errors += "B no pertenece a U<br>";
+    errors += "B ∉ U<br>";
   }
   if(errors == ""){
     return "true";
@@ -102,13 +108,13 @@ function sortN(a){
 function union(a, b){
   var newA = [];
   for(var i = 0; i < a.length; i++){
-    if(!isInArray(a[i], newA)){
+    if(!isInArray(a[i], newA) && a[i] != ""){
       newA.push(a[i]);
     }
   }
 
   for(var i = 0; i < b.length; i++){
-    if(!isInArray(b[i], newA)){
+    if(!isInArray(b[i], newA) && b[i] != ""){
       newA.push(b[i]);
     }
   }
