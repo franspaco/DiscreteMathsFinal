@@ -32,6 +32,7 @@ function main(s){
   var valid =unvalindInput(un, ca, cb);
   if(valid != "true"){
     errP.innerHTML = valid;
+    res.innerHTML = "";
     return 0;
   }else{
     errP.innerHTML = "";

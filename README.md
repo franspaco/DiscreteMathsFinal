@@ -8,5 +8,7 @@
  Un conjunto se ingresa con comas separando os elementos, ejemplo:
 
  1,2,3,4
+
  a,b,c,d
+ 
  1,2,a,c
