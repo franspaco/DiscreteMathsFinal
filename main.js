@@ -1,3 +1,43 @@
+
+
+function main(s){
+  //Main function, called by the buttons, takes as argument the operation
+  console.log(s);
+  var errP = document.getElementById("error");                          //Para imprimir errores
+  var un = document.getElementById("universo").value.split(",");       //Regresa U como arreglo
+  var ca = document.getElementById("conjuntoa").value.split(",");      //Regresa A como arreglo
+  var cb = document.getElementById("conjuntob").value.split(",");      //Regresa B como arreglo
+
+  var uOut = document.getElementById("uni");
+  var aOut = document.getElementById("cona");
+  var bOut = document.getElementById("conb");
+  var oper = document.getElementById("operation");
+  var res  = document.getElementById("res");
+
+  uOut.innerHTML = "{ " + un + "}";
+  aOut.innerHTML = "{ " + ca + "}";
+  bOut.innerHTML = "{ " + cb + "}";
+  oper.innerHTML = s + ":";
+
+  var valid =unvalindInput(un, ca, cb);
+  if(valid != "true"){
+    errP.innerHTML = valid;
+    return 0;
+  }else{
+    errP.innerHTML = "";
+  }
+
+  var tmp;
+  switch(s){
+    case "Unión":
+    console.log("HEH");
+      tmp = union(ca,cb);
+      break;
+  }
+  res.innerHTML = tmp;
+}
+
+// MISCELLANEOUS FUNCTIONS *****************************************************
 function isSubArray(a, b){
   //returns TRUE if a is a sub-array of b, returns FALSE otherwise
   var state = true;
@@ -15,6 +55,7 @@ function isSubArray(a, b){
 }
 
 function unvalindInput(un, ca, cb){
+  //returns string "true" if input arrays are valid, otherwise returns string with errors
   var errors = "";
   if(!isSubArray(ca,un)){
     errors += "A no pertenece a U<br>";
@@ -29,30 +70,30 @@ function unvalindInput(un, ca, cb){
   }
 }
 
-function main(s){
-  console.log(s);
-  var errP = document.getElementById("error");                          //Para imprimir errores
-  var un = document.getElementById("universo").value.split(",");       //Regresa U como arreglo
-  var ca = document.getElementById("conjuntoa").value.split(",");      //Regresa A como arreglo
-  var cb = document.getElementById("conjuntob").value.split(",");      //Regresa B como arreglo
+function isAnArray(inp, arr){
+  var tmp = false;
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] == inp){
+      return true;
+    }
+  }
+  return false;
+}
 
-  var uOut = document.getElementById("uni");
-  var aOut = document.getElementById("cona");
-  var bOut = document.getElementById("conb");
-  var oper = document.getElementById("operation");
-  var res = document.getElementById("res");
-
-  uOut.innerHTML = "{ " + un + "}";
-  aOut.innerHTML = "{ " + ca + "}";
-  bOut.innerHTML = "{ " + cb + "}";
-  oper.innerHTML = s + ":";
-
-  var valid =unvalindInput(un, ca, cb);
-  if(valid != "true"){
-    errP.innerHTML = valid;
-    return 0;
-  }else{
-    errP.innerHTML = "";
+// SET OPERATIONS FUNCTIONS ****************************************************
+function union(a, b){
+  console.log("GOT HERE");
+  var newA = [];
+  for(var i = 0; i < a.length; i++){
+    if(!isAnArray(a[i], newA)){
+      newA.push(a[i]);
+    }
   }
 
+  for(var i = 0; i < b.length; i++){
+    if(!isAnArray(b[i], newA)){
+      newA.push(b[i]);
+    }
+  }
+  return "{ " + newA.sort()  + "}";
 }
