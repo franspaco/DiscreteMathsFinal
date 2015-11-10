@@ -30,8 +30,10 @@ function main(s){
   var tmp;
   switch(s){
     case "Unión":
-    console.log("HEH");
       tmp = union(ca,cb);
+      break;
+    case "Intersección":
+      tmp = intersection(ca, cb);
       break;
   }
   res.innerHTML = tmp;
@@ -66,11 +68,12 @@ function unvalindInput(un, ca, cb){
   if(errors == ""){
     return "true";
   }else{
-    return errors;
+    //return errors;
+    return "true";
   }
 }
 
-function isAnArray(inp, arr){
+function isInArray(inp, arr){
   var tmp = false;
   for(var i = 0; i < arr.length; i++){
     if(arr[i] == inp){
@@ -80,20 +83,33 @@ function isAnArray(inp, arr){
   return false;
 }
 
+function sortN(a){
+  return a.sort(function(a, b){return a-b});
+}
+
 // SET OPERATIONS FUNCTIONS ****************************************************
 function union(a, b){
-  console.log("GOT HERE");
   var newA = [];
   for(var i = 0; i < a.length; i++){
-    if(!isAnArray(a[i], newA)){
+    if(!isInArray(a[i], newA)){
       newA.push(a[i]);
     }
   }
 
   for(var i = 0; i < b.length; i++){
-    if(!isAnArray(b[i], newA)){
+    if(!isInArray(b[i], newA)){
       newA.push(b[i]);
     }
   }
-  return "{ " + newA.sort()  + "}";
+  return "{ " + sortN(newA)  + "}";
+}
+
+function intersection(a, b){
+  var newA = [];
+  for(var i = 0; i < a.length; i++){
+    if(isInArray(a[i], b) && ( !isInArray(a[i], newA) ) ){
+      newA.push(a[i]);
+    }
+  }
+  return "{ " + sortN(newA)  + "}";
 }
