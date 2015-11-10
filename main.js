@@ -5,8 +5,18 @@ function main(s){
   console.log(s);
   var errP = document.getElementById("error");                          //Para imprimir errores
   var un = document.getElementById("universo").value.split(",");       //Regresa U como arreglo
-  var ca = document.getElementById("conjuntoa").value.split(",");      //Regresa A como arreglo
-  var cb = document.getElementById("conjuntob").value.split(",");      //Regresa B como arreglo
+  var ca = document.getElementById("conjuntoa").value;      //Regresa A como arreglo
+  var cb = document.getElementById("conjuntob").value;      //Regresa B como arreglo
+
+  if(ca != ""){
+    ca = ca.split(",");
+  }
+  if(cb != ""){
+    cb = cb.split(",");
+  }
+
+  console.log("A: " + ca + " length: " + ca.length);
+  console.log("B: " + cb + " length: " + cb.length);
 
   var uOut = document.getElementById("uni");
   var aOut = document.getElementById("cona");
@@ -47,8 +57,18 @@ function main(s){
     case "Complemento B":
       tmp = difference(un, cb);
       break;
+    case "Potencia A":
+      tmp = potencia(ca);
+      break;
+    case "Potencia B":
+      tmp = potencia(cb);
+      break;
+    case "Potencia A U B":
+      tmp = potencia(union(ca,cb));
+      getBit(10,1);
+      break;
   }
-  res.innerHTML = tmp;
+  res.innerHTML = "{ " + tmp + " } ";
 }
 
 // MISCELLANEOUS FUNCTIONS *****************************************************
@@ -104,6 +124,16 @@ function sortN(a){
   return a.sort(function(a, b){return a-b});
 }
 
+function getBits(a, size){
+  var tmp = "";
+  for(var i = size; i >= 1; i /= 2){
+    tmp += a&i?'1':'0';
+  }
+  tmp = tmp.split("").reverse();
+  console.log(tmp);
+  return tmp;
+}
+
 // SET OPERATIONS FUNCTIONS ****************************************************
 function union(a, b){
   var newA = [];
@@ -118,7 +148,7 @@ function union(a, b){
       newA.push(b[i]);
     }
   }
-  return "{ " + sortN(newA)  + "}";
+  return sortN(newA);
 }
 
 function intersection(a, b){
@@ -128,7 +158,7 @@ function intersection(a, b){
       newA.push(a[i]);
     }
   }
-  return "{ " + sortN(newA)  + "}";
+  return sortN(newA);
 }
 
 function difference(a,b){
@@ -140,5 +170,25 @@ function difference(a,b){
       newA.push(a[i]);
     }
   }
-  return "{ " + sortN(newA)  + "}";
+  return sortN(newA);
+}
+
+function potencia(a){
+  var newA = [];
+  var size = a.length;
+  var potc = Math.pow(2, size);
+  console.log("size of " + a + " is: " + size + ", conjunto potencia " + potc);
+
+  for(var i = 0; i < potc; i++){
+    var sub = [];
+    var flags = getBits(i, potc);
+    for(var j = 0; j < size; j++){
+      if(flags[j] == "1"){
+        sub.push(a[j]);
+      }
+    }
+    newA.push("{ " + sub + " }<br>");
+  }
+
+  return "<br>" + newA;
 }
