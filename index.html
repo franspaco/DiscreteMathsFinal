@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyecto final</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="hover.css" charset="utf-8">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+  <script src="main.js"></script>
+</head>
+<body>
+  <h1 id="heading">Proyecto final Matemáticas discretas</h1>
+  <div class="content-box">
+    <h2 class="content-box boxTitle">Ingreso de conjuntos:</h2>
+    <form action="" id="inData">
+      <ul id="input">
+        <li>U: <input class="textIn" type="text" id="universo"></li>
+        <li>A: <input class="textIn" type="text" id="conjuntoa"></li>
+        <li>B: <input class="textIn" type="text" id="conjuntob"></li>
+      </ul>
+      <p class="note">Ingresar los elementos separados con comas.</p>
+      <div style="text-align: center;" class="noselect">
+        <p class="hvr-underline-from-center noselect enter" onclick="main('Unión')">Unión</p>
+        <p class="hvr-underline-from-center noselect enter" onclick="main('Intersección')">Intersección</p>
+        <p class="hvr-underline-from-center noselect enter" onclick="main('Diferencia')">Diferencia</p>
+        <p class="hvr-underline-from-center noselect enter" onclick="main('Complemento')">Complemento</p>
+        <p class="hvr-underline-from-center noselect enter" onclick="main('Potencia')">Potencia</p>
+      </div>
+    </form>
+  </div>
+  <div class="content-box">
+    <h3 class="content-box boxTitle">Resultados: </h3>
+    <div id="error"></div>
+    Universo:
+    <div id="uni"></div>
+    <br>
+    A:
+    <div id="cona"></div>
+    <br>
+    B:
+    <div id="conb"></div>
+    <br>
+    <div id="operation"></div>
+    <div id="res"></div>
+  </div>
+</body>
+</html>
