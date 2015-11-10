@@ -65,7 +65,6 @@ function main(s){
       break;
     case "Potencia A U B":
       tmp = potencia(union(ca,cb));
-      getBit(10,1);
       break;
   }
   res.innerHTML = "{ " + tmp + " } ";
@@ -148,6 +147,7 @@ function union(a, b){
       newA.push(b[i]);
     }
   }
+  console.log(sortN(newA));
   return sortN(newA);
 }
 
