@@ -1,6 +1,6 @@
 #Discrete Mathematics Final Project
  (spanish)
-
+http://franspaco.github.io/DiscreteMathsFinal/
  Código de sitio web para realizar varias operaciones con conjuntos.
 
  Se debe ingresar un conjunto universo, y dos conjuntos A y B, estos deben pertenecer a U.
@@ -10,5 +10,5 @@
  1,2,3,4
 
  a,b,c,d
- 
+
  1,2,a,c
