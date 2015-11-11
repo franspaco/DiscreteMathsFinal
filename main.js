@@ -33,9 +33,12 @@ function main(s){
   if(valid != "true"){
     errP.innerHTML = valid;
     res.innerHTML = "";
+
+    errP.classList.remove("closed");
     return 0;
   }else{
-    errP.innerHTML = "";
+    errP.classList.add("closed");
+    //errP.innerHTML = "";
   }
 
   var tmp;
