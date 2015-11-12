@@ -19,6 +19,9 @@ function main(s){
   //Imprimir a la consola los arreglos de entrada y sus cardinalidades con propósitos de pruebas
   console.log("A: " + ca + " length: " + ca.length);
   console.log("B: " + cb + " length: " + cb.length);
+  for(var i = 0; i < ca.length; i++){
+    console.log(ca[i]);
+  }
 
   //regresar los objetos de las salidas
   var uOut = document.getElementById("uni");
@@ -116,11 +119,11 @@ function unvalindInput(un, ca, cb){
   var errors = ""; //variable vacía para almacenar el error
   if(!isSubArray(ca,un)){
     //Si a no es subconjunto de universo anexar el error a la variable
-    errors += "A ∉ U<br>";
+    errors += "A no es subconjunto de U<br>";
   }
   if(!isSubArray(cb,un)){
     //Si b no es subconjunto de universo anexar el error a la variable
-    errors += "B ∉ U<br>";
+    errors += "B no es subconjunto de U<br>";
   }
   if(errors == ""){
     //Si no hay errores regresar "true"
@@ -171,7 +174,7 @@ function union(a, b){
   var newA = []; //Variable para guardar el conjunto de salida
   for(var i = 0; i < a.length; i++){
     //Para cada elemento de a
-    if(!isInArray(a[i], newA) && a[i] != ""){
+    if(a[i] == "" || !isInArray(a[i], newA)){
       //Si a[i] no está en el conjunto de salida => agregar al conjunto de salida
       newA.push(a[i]);
     }
@@ -179,7 +182,7 @@ function union(a, b){
 
   for(var i = 0; i < b.length; i++){
     //Para cada elemento de a
-    if(!isInArray(b[i], newA) && b[i] != ""){
+    if(a[i] == "" || !isInArray(b[i], newA)){
       //Si b[i] no está en el conjunto de salida => agregar al conjunto de salida
       newA.push(b[i]);
     }

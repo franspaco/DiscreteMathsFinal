@@ -7,7 +7,7 @@ http://franspaco.github.io/DiscreteMathsFinal/
 
  Se debe ingresar un conjunto universo, y dos conjuntos A y B, estos deben pertenecer a U.
 
- Un conjunto se ingresa con comas separando os elementos, ejemplo:
+ Un conjunto se ingresa con comas separando los elementos, ejemplo:
 
  1,2,3,4
 
