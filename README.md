@@ -1,7 +1,11 @@
 #Discrete Mathematics Final Project
  (spanish)
 
+Aplicación:
 http://franspaco.github.io/DiscreteMathsFinal/
+
+Manual:
+http://franspaco.github.io/DiscreteMathsFinal/manual
 
  Código de sitio web para realizar varias operaciones con conjuntos.
 
