@@ -4,11 +4,14 @@ function main(s){
   //Función principal, recibe un string de cada botón que la llama.
   console.log(s);
   var errP = document.getElementById("error");                          //Para imprimir errores
-  var un = document.getElementById("universo").value.split(",");       //Regresa U como arreglo
-  var ca = document.getElementById("conjuntoa").value;      //Regresa A como arreglo
-  var cb = document.getElementById("conjuntob").value;      //Regresa B como arreglo
+  var un = document.getElementById("universo").value;       //Regresa U
+  var ca = document.getElementById("conjuntoa").value;      //Regresa A
+  var cb = document.getElementById("conjuntob").value;      //Regresa B
 
   //Dividir el texto en un arreglo solo si no está vació
+  if(un != ""){
+    un = un.split(",");
+  }
   if(ca != ""){
     ca = ca.split(",");
   }
