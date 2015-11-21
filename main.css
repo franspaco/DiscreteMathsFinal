@@ -116,3 +116,12 @@ img{
   width: 300px;
   margin-left: 50px;
 }
+
+#manual div p{
+  text-indent: 20px;
+}
+
+.descripcion p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

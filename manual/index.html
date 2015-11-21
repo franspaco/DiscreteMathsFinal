@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../hover.css" charset="utf-8">
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body id="manual">
   <div class="content-box centerAlign">
     <h1 id="heading">Proyecto final Matemáticas discretas</h1>
     <a class="hvr-underline-from-center noselect enter link" href="../">Aplicación</a>
@@ -15,29 +15,86 @@
   <div class="content-box">
     <h2 class="content-box boxTitle">Manual de usuario:</h2>
     <h3>Ingreso de datos:</h3>
-    Se ingresan los datos en los campos:
+    <p>Se ingresan los datos en los campos:</p>
     <img src="img/entrada.PNG" alt="" class="img">
-    <p>Se deben insertar los elementos con comas entre ellos. Por ejemplo, los elementos "1", "2", "a" se ingresan </p>
-    <input class="textIn mock" type="text" value="1,2,a">
+
+    <p>
+      Se deben insertar los elementos con comas entre ellos. Por ejemplo, los elementos "1", "2", "a" se ingresan:
+      <input class="textIn mock" type="text" value="1,2,a">
+    </p>
     <p>Los conjuntos A y B <i>deben</i> ser subconjuntos de U, de lo contrario se abrirá un error similar:</p>
+
     <img src="img/error.PNG" alt="" class="img">
-    <p>Se puede usar cualquier número o letra como entrada, e.g.:</p>
-    <input class="textIn mock" type="text" value="1,b,j,5">
-    <p>Igualmente se pueden introducir caracteres especiales:</p>
-    <input class="textIn mock" type="text" value="1,@,j,5,$,#">
-    <p class="note">Nota: no se pueden usar comas.</p>
-    <p>Un ejemplo de una entrada de datos válida:</p>
-    <img src="img/correcta.PNG" alt="" class="img">
+
+    <p>
+      Se puede usar cualquier número o letra como entrada, e.g.:
+      <input class="textIn mock" type="text" value="1,b,j,5">
+    </p>
+    <p>
+      Igualmente se pueden introducir caracteres especiales:
+      <input class="textIn mock" type="text" value="1,@,j,5,$,#">
+      <br>
+      <i class="note">Nota: no se pueden usar comas como elementos. Si se intoduce un espacio se tomará como parte del elemento.</i>
+    </p>
+
+    <p>
+      Un ejemplo de una entrada de datos válida:
+      <img src="img/correcta.PNG" alt="" class="img">
+    </p>
+
+    <p>
+      La aplicación puede manejar elementos de más de un caracter mientras no se divida con una coma, por ejemplo, en la sieguiente entrada "abc" es un solo elemento:
+      <input class="textIn mock" type="text" value="1,abc,a">
+    </p>
+
+    <p>
+      La aplicación también permite operar con conjuntos vacíos. Estos se pueden declarar insertando una coma sin un elemento que le siga, por ejemplo:
+      <input class="textIn mock" type="text" value="1,2,">
+      <input class="textIn mock" type="text" value="1,,2" style="margin-top: 5px"><br>
+      Estos se convertirán automáticamente a ∅.
+    </p>
+
+    <p>La aplicación también es capaz de procesar arreglos con duplicados, por ejemplo, la entrada:
+      <input class="textIn mock" type="text" value="1,1,1,2"><br>
+      Será interpretada como:
+      <input class="textIn mock" type="text" value="1,2"><br>
+    </p>
+
+
     <h3>Operaciones:</h3>
     <p>Todas las operaciones que se pueden realizar se encuentran en los botones:</p>
     <img src="img/botones.PNG" alt="" class="img">
     <p>Para hacer una operación solo se requiere hacer clic en el boton deseado, e.g.:</p>
     <img src="img/union.PNG" alt="" class="img">
-    <p>Para hacer una operación diferente basta hacer clic en el boton deseadobr <br> .</p>
+    <p>Para hacer una operación diferente basta hacer clic en el boton deseado.</p>
+    <p>Los valores de los arreglos se pueden modificar en cualquier momento.</p>
     <h3>Casos de error:</h3>
     <p>En caso de desplegarse un error como este:</p>
     <img src="img/error2.PNG" alt="" class="img">
     <p>Es necesario corroborar que A y B sean sunconjuntos de U.</p>
+  </div>
+  <div class="content-box descripcion">
+    <h2 class="content-box boxTitle">Descripción técnica</h2>
+    Lenguaje: Javascript
+    <br>
+    <a href="https://github.com/franspaco/DiscreteMathsFinal/blob/gh-pages/main.js" class="hvr-underline-from-center noselect enter link">Código Fuente</a>
+    <br>
+    <p>El programa se basa en el uso de arreglos para realizar las operaciones con los conjuntos.</p>
+    <p>Estos se obtienen de la entrada de texto que es separada en un arreglo por comas, esto implica una gran variedad en cuanto a lo que puede ser un elemento, incluyendo la posibilidad de elementos de varios caracteres, o de caracteres especiales. </p>
+    <p>También permite la manipulación de conjuntos vacíos que se ingresan insertando un elemento vacío.</p>
+    <p>El funcionamiento resumido del código:</p>
+    <ol>
+      <li>Se manda a llamar la función principal con el argumento de la operación solicitada.</li>
+      <li>Se sustituyen elementos vacíos por ∅.</li>
+      <li>Se eliminan duplicados en las entradas.</li>
+      <li>Se valida la entrada.</li>
+      <li>Si la entrada es inválida se imprime el error correspondiente y se sale de la función.</li>
+      <li>Si al entrada es válida se manda llamar la función correspondiente a la operación.</li>
+      <li>Se imprime la salida.</li>
+    </ol>
+    <p>Se utilizan varios métodos para hacer las operacioens, pero la mayoría depende de la función isInArray(), que determina si un elemento existe en un conjunto dado.</p>
+    <p>Para la generación del conjunto potencia se utiliza conteo en binario.</p>
+    </p>
   </div>
 </body>
 </html>

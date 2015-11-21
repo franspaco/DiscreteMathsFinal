@@ -30,10 +30,21 @@ function main(s){
   var oper = document.getElementById("operation");
   var res  = document.getElementById("res");
 
+  //Buscar elementos vacíos convierte "" en ∅
+  replaceInArray(un, "", "∅");
+  replaceInArray(ca, "", "∅");
+  replaceInArray(cb, "", "∅");
+
+  //Unión a sí mismos para eliminar elementos duplicados
+  un = union(un,[]);
+  ca = union(ca,[]);
+  cb = union(cb,[]);
+
   //Imprimir las entradas
-  uOut.innerHTML = "{ " + un + "}";
-  aOut.innerHTML = "{ " + ca + "}";
-  bOut.innerHTML = "{ " + cb + "}";
+  uOut.innerHTML = "{ " + un + " }";
+  aOut.innerHTML = "{ " + ca + " }";
+  bOut.innerHTML = "{ " + cb + " }";
+
   //Imprimir la operación que se solicitó
   oper.innerHTML = s + ":";
 
@@ -89,6 +100,16 @@ function main(s){
 }
 
 // FUNCTIONES VARIAS ***********************************************************
+
+function replaceInArray(arr, oldValue, newValue){
+  //Reemplaza en un arreglo cualquien instancia de [oldValue] con [newValue]
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] == oldValue){
+      arr[i] = newValue;
+    }
+  }
+}
+
 function isSubArray(a, b){
   //regresa TRUE si a es subconjunto de b, de lo contrario regresa FALSO
 
@@ -97,6 +118,7 @@ function isSubArray(a, b){
     console.log("Conjunto Vacío");
     return true;
   }
+
   if(a.length > b.length){
     //Si la cardinalidad de a es mayor a la de b => regresar FALSE
     console.log("Error de cardinalidad");
