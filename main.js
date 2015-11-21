@@ -92,12 +92,14 @@ function main(s){
 function isSubArray(a, b){
   //regresa TRUE si a es subconjunto de b, de lo contrario regresa FALSO
 
-  if(a[0] == ""){
+  if(a == []){
     //Si es conjunto vacío => regresar TRUE
+    console.log("Conjunto Vacío");
     return true;
   }
   if(a.length > b.length){
     //Si la cardinalidad de a es mayor a la de b => regresar FALSE
+    console.log("Error de cardinalidad");
     return false;
   }
 
@@ -174,7 +176,7 @@ function union(a, b){
   var newA = []; //Variable para guardar el conjunto de salida
   for(var i = 0; i < a.length; i++){
     //Para cada elemento de a
-    if(a[i] == "" || !isInArray(a[i], newA)){
+    if(!isInArray(a[i], newA)){
       //Si a[i] no está en el conjunto de salida => agregar al conjunto de salida
       newA.push(a[i]);
     }
@@ -182,7 +184,7 @@ function union(a, b){
 
   for(var i = 0; i < b.length; i++){
     //Para cada elemento de a
-    if(a[i] == "" || !isInArray(b[i], newA)){
+    if(!isInArray(b[i], newA)){
       //Si b[i] no está en el conjunto de salida => agregar al conjunto de salida
       newA.push(b[i]);
     }
