@@ -92,8 +92,62 @@
       <li>Si al entrada es válida se manda llamar la función correspondiente a la operación.</li>
       <li>Se imprime la salida.</li>
     </ol>
-    <p>Se utilizan varios métodos para hacer las operacioens, pero la mayoría depende de la función isInArray(), que determina si un elemento existe en un conjunto dado.</p>
-    <p>Para la generación del conjunto potencia se utiliza conteo en binario.</p>
+    <hr>
+    <p>Se utilizan varios métodos para hacer las operaciones, a continuación se describe brevemente el funcionamiento de cada uno: (se presentan en el orden en que aparecen en el código)</p>
+    <p>
+      <strong>main(String)</strong>
+      <br>
+      Función principal, recibe tento del botón que lo llama. Se encarda de hacer posibles correciones menores a la entrada de datos. Llama a todas las demás funciones y se encarga de imprimir los errores o resultados.
+    </p>
+    <p>
+      <strong>replaceInArray(arreglo, elemento, elemento)</strong>
+      <br>
+      Recibe un arreglo, un elemento a buscar y un elemento con el que reemplazarlo. Sustituye todas las instancias del elemento anterior con el elemento nuevo y regresa el arreglo.
+    </p>
+    <p>
+      <strong>isSubArray(arreglo, arreglo)</strong>
+      <br>
+      Recibe dos arreglos, <i>A</i> y <i>B</i>. Regresa <i>verdadero</i> si <i>A</i> es subconjunto de <i>B</i>, de lo contrario regresa <i>falso</i>.
+    </p>
+    <p>
+      <strong>unvalindInput(arreglo, arreglo, arreglo)</strong>
+      <br>
+      Verifica que la entrada de <i>A</i>, <i>B</i> y <i>U</i> sea válida. (Que <i>A</i> y <i>B</i> sean subconjuntos de <i>U</i>)
+    </p>
+    <p>
+      <strong>isInArray(elemento, arreglo)</strong>
+      <br>
+      Recibe un elemento y un arreglo, busca el elemento en el arreglo, en caso de encontrarlo regresa <i>verdadero</i>, de lo contrario regresa <i>falso</i>.
+    </p>
+    <p>
+      <strong>getBits(entero, entero)</strong>
+      <br>
+      Recibe un entero <i>A</i>, y un entero <i>size</i>. Convierte <i>A</i> a binario y lo regresa en en arreglo invertido. El arreglo será del tamaño necesarios para contener un
+      número de hasta <i>size</i> bits. es decir, el arreglo es de tamaño log_2 (<i>size</i>)
+    </p>
+    <p>
+      <strong>union(arreglo, arreglo)</strong>
+      <br>
+      Recibe dos arreglos <i>A</i> y <i>B</i>, crea un arreglo <i>C</i>. Agrega todos los elementos de <i>A</i> y <i>B</i> a C siempre y cuando no estén ya en <i>C</i>. Regresa <i>C</i>.
+    </p>
+    <p>
+      <strong>intersection(arreglo, arreglo)</strong>
+      <br>
+      Recibe dos arreglos <i>A</i> y <i>B</i>, crea un arreglo <i>C</i>. Agrega todos los elementos de <i>A</i> que también estén en <i>B</i> a <i>C</i>. Regresa <i>C</i>.
+    </p>
+    <p>
+      <strong>difference(arreglo, arreglo)</strong>
+      <br>
+      Recibe dos arreglos <i>A</i> y <i>B</i>, crea un arreglo <i>C</i>. Agrega a <i>C</i> todos los elementos de <i>A</i> que NO estan en <i>B</i> a <i>C</i>. Regresa <i>C</i>.
+    </p>
+    <p>
+      <strong>power(arreglo)</strong>
+      <br>
+      Recibe un arreglo <i>A</i> y se crea un arreglo <i>B</i>. Calcula la cantidad de elementos del conjunto potencia usando 2^|<i>A</i>|
+      y lo guarda en una variable llamada <i>potc</i>. Luego se corre un <strong>for</strong> de 0 a <i>potc</i>. Dentro de este se crea un arreglo <i>C</i>.  Luego el índice se convierte a binario con <strong>getBits()</strong>.
+      Se usa el número binario cuyo tamaño es igual a |<i>A</i>| para definir si cada elemento de <i>A</i> se agrega a <i>C</i>. De esta forma se asegura que se den todas las posibilidades.
+      Finalmente se agrega <i>C</i> como elemento de <i>B</i>. <br>
+      Al final del ciclo se regresa <i>B</i>.
     </p>
   </div>
 </body>

@@ -88,13 +88,13 @@ function main(s){
       tmp = difference(un, cb);
       break;
     case "Potencia A":
-      tmp = potencia(ca);
+      tmp = power(ca);
       break;
     case "Potencia B":
-      tmp = potencia(cb);
+      tmp = power(cb);
       break;
     case "Potencia A U B":
-      tmp = potencia(union(ca,cb));
+      tmp = power(union(ca,cb));
       break;
   }
 
@@ -244,7 +244,7 @@ function difference(a,b){
   return sortN(newA); //Regresar el conjunto de salida ordenado
 }
 
-function potencia(a){
+function power(a){
   var newA = [];                //Crear arreglo para guardar la salida
   var size = a.length;          //regresar cardinalidad de a
   var potc = Math.pow(2, size); //Calcular cardinalidad del conjunto potencia
